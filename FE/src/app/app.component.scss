@@ -1,0 +1,209 @@
+// app.component.scss
+
+/* Główne style */
+.container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+/* Formularz */
+form {
+    background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+
+    &:hover {
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+    }
+}
+
+/* Nagłówek */
+.form-label {
+    font-size: 1.2rem;
+    color: #2c3e50;
+    margin-bottom: 1rem;
+    display: block;
+    font-weight: 600;
+}
+
+/* Karty tematów */
+.topic-card {
+    position: relative;
+    margin-bottom: 1.5rem;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    cursor: pointer;
+
+    label {
+        display: block;
+        padding: 1.5rem;
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        border: 2px solid transparent;
+        position: relative; // Dodane dla poprawnego pozycjonowania znacznika
+        overflow: hidden; 
+
+        &:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+            border-color: #3498db;
+        }
+    }
+
+    input[type="radio"] {
+        position: absolute;
+        opacity: 0;
+
+        &:checked+label {
+            border-color: #3498db;
+            background-color: #f8f9fa;
+        }
+    }
+
+    img {
+        border-radius: 8px;
+        margin-bottom: 1rem;
+        object-fit: cover;
+        width: 100%;
+        height: 180px;
+        border: 1px solid #eee;
+        transition: transform 0.3s ease;
+    }
+
+    div {
+        font-size: 1.1rem;
+        color: #34495e;
+        font-weight: 500;
+    }
+}
+
+.file-upload {
+    position: relative;
+    margin: 2rem 0;
+    text-align: center; // Dodane dla wyśrodkowania
+
+    input[type="file"] {
+        width: 0.1px;
+        height: 0.1px;
+        opacity: 0;
+        overflow: hidden;
+        position: absolute;
+        z-index: -1;
+    }
+
+    label {
+        display: inline-block; // Zmienione na inline-block
+        padding: 1.5rem 3rem;
+        background: white;
+        border: 2px dashed #bdc3c7;
+        border-radius: 12px;
+        text-align: center;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        margin: 0 auto; // Wyśrodkowanie
+
+        &:hover {
+            border-color: #3498db;
+            background: #f8f9fa;
+        }
+
+        &::before {
+            content: '📁';
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+    }
+
+    .file-preview-container {
+        display: flex;
+        justify-content: center;
+        margin-top: 2rem;
+        animation: fadeIn 0.5s ease;
+    }
+
+    .file-preview {
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        border: 1px solid #eee;
+        max-width: 100%;
+        max-height: 300px;
+        object-fit: contain;
+    }
+}
+
+/* Przycisk */
+.btn-primary {
+    background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+    border: none;
+    padding: 0.8rem 2rem;
+    font-size: 1.1rem;
+    border-radius: 50px;
+    box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+
+    &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 7px 20px rgba(52, 152, 219, 0.4);
+    }
+
+    &:active {
+        transform: translateY(0);
+    }
+
+    &:disabled {
+        background: #bdc3c7;
+        box-shadow: none;
+        transform: none;
+        cursor: not-allowed;
+    }
+}
+
+/* Animacje */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.topic-card {
+    animation: fadeIn 0.5s ease forwards;
+
+    &:nth-child(1) {
+        animation-delay: 0.1s;
+    }
+
+    &:nth-child(2) {
+        animation-delay: 0.2s;
+    }
+
+    &:nth-child(3) {
+        animation-delay: 0.3s;
+    }
+}
+
+/* Responsywność */
+@media (max-width: 768px) {
+    .topic-card {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+
+    .container {
+        padding: 0 0.5rem;
+    }
+}

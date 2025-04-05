@@ -1,0 +1,34 @@
+<div class="container py-4">
+  <form [formGroup]="form" (ngSubmit)="analyze()">
+    <div class="row text-center mb-4">
+      <div class="col-4 topic-card" *ngFor="let topic of topics">
+        <input
+          type="radio"
+          [value]="topic.id"
+          formControlName="topic"
+          id="topic-{{topic.id}}"
+          name="topic"
+        >
+        <label for="topic-{{topic.id}}">
+          <img [src]="topic.image" [alt]="topic.name">
+          <div>{{ topic.name }}</div>
+        </label>
+      </div>
+    </div>
+
+    <div class="file-upload">
+      <input type="file" (change)="onFileChange($event)" id="file-upload" accept="image/*">
+      <label for="file-upload">{{selectedFilePreview != null ? selectedFileName  : 'Wybierz zdjęcie do analizy'}}</label>
+      
+      <div *ngIf="selectedFilePreview" class="file-preview-container">
+        <img [src]="selectedFilePreview" class="file-preview">
+      </div>
+    </div>
+
+    <div class="text-center mt-4">
+      <button type="submit" class="btn btn-primary" [disabled]="form.invalid">
+        Analizuj
+      </button>
+    </div>
+  </form>
+</div>
