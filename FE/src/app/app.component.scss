@@ -1,13 +1,9 @@
-// app.component.scss
-
-/* Główne style */
 .container {
     max-width: 1200px;
     margin: 2rem auto;
     padding: 0 1rem;
 }
 
-/* Formularz */
 form {
     background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
     border-radius: 15px;
@@ -20,7 +16,6 @@ form {
     }
 }
 
-/* Nagłówek */
 .form-label {
     font-size: 1.2rem;
     color: #2c3e50;
@@ -29,12 +24,12 @@ form {
     font-weight: 600;
 }
 
-/* Karty tematów */
 .topic-card {
     position: relative;
     margin-bottom: 1.5rem;
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     cursor: pointer;
+    height: 100%;
 
     label {
         display: block;
@@ -44,11 +39,9 @@ form {
         box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
         transition: all 0.3s ease;
         border: 2px solid transparent;
-        position: relative; // Dodane dla poprawnego pozycjonowania znacznika
-        overflow: hidden; 
-
+        height: 100%;
         &:hover {
-            transform: translateY(-5px);
+            transform: translateY(-2px);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
             border-color: #3498db;
         }
@@ -61,6 +54,7 @@ form {
         &:checked+label {
             border-color: #3498db;
             background-color: #f8f9fa;
+            transform: translateY(-10px);
         }
     }
 
@@ -84,7 +78,7 @@ form {
 .file-upload {
     position: relative;
     margin: 2rem 0;
-    text-align: center; // Dodane dla wyśrodkowania
+    text-align: center;
 
     input[type="file"] {
         width: 0.1px;
@@ -96,7 +90,7 @@ form {
     }
 
     label {
-        display: inline-block; // Zmienione na inline-block
+        display: inline-block;
         padding: 1.5rem 3rem;
         background: white;
         border: 2px dashed #bdc3c7;
@@ -104,7 +98,7 @@ form {
         text-align: center;
         cursor: pointer;
         transition: all 0.3s ease;
-        margin: 0 auto; // Wyśrodkowanie
+        margin: 0 auto;
 
         &:hover {
             border-color: #3498db;
@@ -137,7 +131,6 @@ form {
     }
 }
 
-/* Przycisk */
 .btn-primary {
     background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
     border: none;
@@ -164,6 +157,30 @@ form {
         box-shadow: none;
         transform: none;
         cursor: not-allowed;
+    }
+}
+
+.link-icon {
+    color: #3498db;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: rgba(52, 152, 219, 0.1);
+    text-decoration: none;
+}
+
+.topic-card label {
+    .d-flex {
+        padding: 0 0.5rem;
+    }
+
+    span {
+        flex-grow: 1;
+        text-align: left;
     }
 }
 

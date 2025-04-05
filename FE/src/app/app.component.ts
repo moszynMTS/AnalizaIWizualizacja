@@ -19,9 +19,9 @@ export class AppComponent {
   form: FormGroup;
 
   topics = [
-    { id: 1, image: 'assets/images/img1.jpg', name: 'Temat 1' },
-    { id: 2, image: 'assets/images/img2.jpg', name: 'Temat 2' },
-    { id: 3, image: 'assets/images/img3.jpg', name: 'Temat 3' }
+    { id: 1, image: 'assets/images/img1.jpg', name: 'X-Ray klatki piersiowej (zapalenie płuc)', nameOg: 'Chest X-Ray Images (Pneumonia)', link: 'https://www.kaggle.com/datasets/paultimothymooney/chest-xray-pneumonia' },
+    { id: 2, image: 'assets/images/img2.jpg', name: 'Klasyfikacja obrazów motyli', nameOg: 'Butterfly Image Classification', link: 'https://www.kaggle.com/datasets/phucthaiv02/butterfly-image-classification?select=Training_set.csv' },
+    { id: 3, image: 'assets/images/img3.jpg', name: 'Klasyfikacja zbioru danych obrazów kart', nameOg: 'Cards Image Dataset-Classification', link: 'https://www.kaggle.com/datasets/gpiosenka/cards-image-datasetclassification/data' }
   ];
 
   selectedFileName: string | null = null;

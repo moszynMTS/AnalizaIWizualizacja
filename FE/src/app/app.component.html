@@ -1,11 +1,16 @@
 <div class="container py-4">
   <form [formGroup]="form" (ngSubmit)="analyze()">
     <div class="row text-center mb-4">
-      <div class="col-4 topic-card" *ngFor="let topic of topics">
+      <div class="col-4 topic-card" *ngFor="let topic of topics" style="height: 20rem;">
         <input type="radio" [value]="topic.id" formControlName="id" id="topic-{{topic.id}}">
         <label for="topic-{{topic.id}}">
           <img [src]="topic.image" [alt]="topic.name">
-          <div>{{ topic.name }}</div>
+          <div class="d-flex justify-content-between align-items-center mt-2">
+            <a *ngIf="topic.link" [href]="topic.link" target="_blank" class="link-icon" [title]="topic.nameOg">
+              🔗
+            </a>
+            <span style="margin-left: 5px;">{{ topic.name }}</span>
+          </div>
         </label>
       </div>
     </div>
